@@ -1,7 +1,8 @@
 export default {
   components: {
-    example: {
-      title: "Example",
+    themeToggle: {
+      darkMode: "Dark mode",
+      lightMode: "Light mode",
     },
   },
 };
