@@ -10,12 +10,14 @@ npx quartz plugin add github:quartz-community/darkmode
 
 ## Usage
 
-```ts
-// quartz.layout.ts
-import * as Plugin from "./.quartz/plugins";
-
-// Add to your layout
-Plugin.Darkmode(); // in the appropriate layout section
+```yaml title="quartz.config.yaml"
+plugins:
+  - source: github:quartz-community/darkmode
+    enabled: true
+    layout:
+      position: left
+      priority: 30
+      group: toolbar
 ```
 
 ## Configuration
@@ -24,7 +26,7 @@ This plugin has no configuration options.
 
 ## Documentation
 
-See the [Quartz documentation](https://quartz.jzhao.xyz/) for more information.
+See the [Quartz documentation](https://quartz.jzhao.xyz/features/darkmode) for more information.
 
 ## License
 
