@@ -5,7 +5,7 @@ import type {
 } from "@quartz-community/types";
 import { classNames } from "../util/lang";
 import { i18n } from "../i18n";
-// @ts-ignore
+// @ts-expect-error - inline script import handled by Quartz bundler
 import darkmodeScript from "./scripts/darkmode.inline.ts";
 import styles from "./styles/darkmode.scss";
 
