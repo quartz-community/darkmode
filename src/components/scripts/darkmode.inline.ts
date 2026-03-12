@@ -9,7 +9,7 @@ const emitThemeChangeEvent = (theme: "light" | "dark") => {
   document.dispatchEvent(event);
 };
 
-document.addEventListener("nav", () => {
+const setupDarkmode = () => {
   const switchTheme = () => {
     const newTheme =
       document.documentElement.getAttribute("saved-theme") === "dark" ? "light" : "dark";
@@ -34,4 +34,7 @@ document.addEventListener("nav", () => {
   const colorSchemeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
   colorSchemeMediaQuery.addEventListener("change", themeChange);
   window.addCleanup(() => colorSchemeMediaQuery.removeEventListener("change", themeChange));
-});
+};
+
+document.addEventListener("nav", setupDarkmode);
+document.addEventListener("render", setupDarkmode);
