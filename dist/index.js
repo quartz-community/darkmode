@@ -1,7 +1,9 @@
-import { classNames } from '@quartz-community/utils/lang';
 import { jsxs, jsx } from 'preact/jsx-runtime';
 
-// src/util/lang.ts
+// node_modules/@quartz-community/utils/dist/lang.js
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 // src/i18n/locales/en-US.ts
 var en_US_default = {
@@ -13,9 +15,328 @@ var en_US_default = {
   }
 };
 
+// src/i18n/locales/ar-SA.ts
+var ar_SA_default = {
+  components: {
+    themeToggle: {
+      darkMode: "\u0627\u0644\u0648\u0636\u0639 \u0627\u0644\u0644\u064A\u0644\u064A",
+      lightMode: "\u0627\u0644\u0648\u0636\u0639 \u0627\u0644\u0646\u0647\u0627\u0631\u064A"
+    }
+  }
+};
+
+// src/i18n/locales/ca-ES.ts
+var ca_ES_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Mode fosc",
+      lightMode: "Mode clar"
+    }
+  }
+};
+
+// src/i18n/locales/cs-CZ.ts
+var cs_CZ_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Tmav\xFD re\u017Eim",
+      lightMode: "Sv\u011Btl\xFD re\u017Eim"
+    }
+  }
+};
+
+// src/i18n/locales/de-DE.ts
+var de_DE_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Dunkler Modus",
+      lightMode: "Heller Modus"
+    }
+  }
+};
+
+// src/i18n/locales/en-GB.ts
+var en_GB_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Dark mode",
+      lightMode: "Light mode"
+    }
+  }
+};
+
+// src/i18n/locales/es-ES.ts
+var es_ES_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Modo oscuro",
+      lightMode: "Modo claro"
+    }
+  }
+};
+
+// src/i18n/locales/fa-IR.ts
+var fa_IR_default = {
+  components: {
+    themeToggle: {
+      darkMode: "\u062D\u0627\u0644\u062A \u062A\u0627\u0631\u06CC\u06A9",
+      lightMode: "\u062D\u0627\u0644\u062A \u0631\u0648\u0634\u0646"
+    }
+  }
+};
+
+// src/i18n/locales/fi-FI.ts
+var fi_FI_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Tumma tila",
+      lightMode: "Vaalea tila"
+    }
+  }
+};
+
+// src/i18n/locales/fr-FR.ts
+var fr_FR_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Mode sombre",
+      lightMode: "Mode clair"
+    }
+  }
+};
+
+// src/i18n/locales/he-IL.ts
+var he_IL_default = {
+  components: {
+    themeToggle: {
+      darkMode: "\u05DE\u05E6\u05D1 \u05DB\u05D4\u05D4",
+      lightMode: "\u05DE\u05E6\u05D1 \u05D1\u05D4\u05D9\u05E8"
+    }
+  }
+};
+
+// src/i18n/locales/hu-HU.ts
+var hu_HU_default = {
+  components: {
+    themeToggle: {
+      darkMode: "S\xF6t\xE9t m\xF3d",
+      lightMode: "Vil\xE1gos m\xF3d"
+    }
+  }
+};
+
+// src/i18n/locales/id-ID.ts
+var id_ID_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Mode Gelap",
+      lightMode: "Mode Terang"
+    }
+  }
+};
+
+// src/i18n/locales/it-IT.ts
+var it_IT_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Tema scuro",
+      lightMode: "Tema chiaro"
+    }
+  }
+};
+
+// src/i18n/locales/ja-JP.ts
+var ja_JP_default = {
+  components: {
+    themeToggle: {
+      darkMode: "\u30C0\u30FC\u30AF\u30E2\u30FC\u30C9",
+      lightMode: "\u30E9\u30A4\u30C8\u30E2\u30FC\u30C9"
+    }
+  }
+};
+
+// src/i18n/locales/kk-KZ.ts
+var kk_KZ_default = {
+  components: {
+    themeToggle: {
+      darkMode: "\u049A\u0430\u0440\u0430\u04A3\u0493\u044B \u0440\u0435\u0436\u0438\u043C",
+      lightMode: "\u0416\u0430\u0440\u044B\u049B \u0440\u0435\u0436\u0438\u043C\u0456"
+    }
+  }
+};
+
+// src/i18n/locales/ko-KR.ts
+var ko_KR_default = {
+  components: {
+    themeToggle: {
+      darkMode: "\uB2E4\uD06C \uBAA8\uB4DC",
+      lightMode: "\uB77C\uC774\uD2B8 \uBAA8\uB4DC"
+    }
+  }
+};
+
+// src/i18n/locales/lt-LT.ts
+var lt_LT_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Tamsus Re\u017Eimas",
+      lightMode: "\u0160viesus Re\u017Eimas"
+    }
+  }
+};
+
+// src/i18n/locales/nb-NO.ts
+var nb_NO_default = {
+  components: {
+    themeToggle: {
+      darkMode: "M\xF8rk modus",
+      lightMode: "Lys modus"
+    }
+  }
+};
+
+// src/i18n/locales/nl-NL.ts
+var nl_NL_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Donkere modus",
+      lightMode: "Lichte modus"
+    }
+  }
+};
+
+// src/i18n/locales/pl-PL.ts
+var pl_PL_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Tryb ciemny",
+      lightMode: "Trzyb jasny"
+    }
+  }
+};
+
+// src/i18n/locales/pt-BR.ts
+var pt_BR_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Tema escuro",
+      lightMode: "Tema claro"
+    }
+  }
+};
+
+// src/i18n/locales/ro-RO.ts
+var ro_RO_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Modul \xEEntunecat",
+      lightMode: "Modul luminos"
+    }
+  }
+};
+
+// src/i18n/locales/ru-RU.ts
+var ru_RU_default = {
+  components: {
+    themeToggle: {
+      darkMode: "\u0422\u0451\u043C\u043D\u044B\u0439 \u0440\u0435\u0436\u0438\u043C",
+      lightMode: "\u0421\u0432\u0435\u0442\u043B\u044B\u0439 \u0440\u0435\u0436\u0438\u043C"
+    }
+  }
+};
+
+// src/i18n/locales/th-TH.ts
+var th_TH_default = {
+  components: {
+    themeToggle: {
+      darkMode: "\u0E42\u0E2B\u0E21\u0E14\u0E21\u0E37\u0E14",
+      lightMode: "\u0E42\u0E2B\u0E21\u0E14\u0E2A\u0E27\u0E48\u0E32\u0E07"
+    }
+  }
+};
+
+// src/i18n/locales/tr-TR.ts
+var tr_TR_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Koyu mod",
+      lightMode: "A\xE7\u0131k mod"
+    }
+  }
+};
+
+// src/i18n/locales/uk-UA.ts
+var uk_UA_default = {
+  components: {
+    themeToggle: {
+      darkMode: "\u0422\u0435\u043C\u043D\u0438\u0439 \u0440\u0435\u0436\u0438\u043C",
+      lightMode: "\u0421\u0432\u0456\u0442\u043B\u0438\u0439 \u0440\u0435\u0436\u0438\u043C"
+    }
+  }
+};
+
+// src/i18n/locales/vi-VN.ts
+var vi_VN_default = {
+  components: {
+    themeToggle: {
+      darkMode: "Ch\u1EBF \u0111\u1ED9 t\u1ED1i",
+      lightMode: "Ch\u1EBF \u0111\u1ED9 s\xE1ng"
+    }
+  }
+};
+
+// src/i18n/locales/zh-CN.ts
+var zh_CN_default = {
+  components: {
+    themeToggle: {
+      darkMode: "\u6697\u8272\u6A21\u5F0F",
+      lightMode: "\u4EAE\u8272\u6A21\u5F0F"
+    }
+  }
+};
+
+// src/i18n/locales/zh-TW.ts
+var zh_TW_default = {
+  components: {
+    themeToggle: {
+      darkMode: "\u6697\u8272\u6A21\u5F0F",
+      lightMode: "\u4EAE\u8272\u6A21\u5F0F"
+    }
+  }
+};
+
 // src/i18n/index.ts
 var locales = {
-  "en-US": en_US_default
+  "en-US": en_US_default,
+  "ar-SA": ar_SA_default,
+  "ca-ES": ca_ES_default,
+  "cs-CZ": cs_CZ_default,
+  "de-DE": de_DE_default,
+  "en-GB": en_GB_default,
+  "es-ES": es_ES_default,
+  "fa-IR": fa_IR_default,
+  "fi-FI": fi_FI_default,
+  "fr-FR": fr_FR_default,
+  "he-IL": he_IL_default,
+  "hu-HU": hu_HU_default,
+  "id-ID": id_ID_default,
+  "it-IT": it_IT_default,
+  "ja-JP": ja_JP_default,
+  "kk-KZ": kk_KZ_default,
+  "ko-KR": ko_KR_default,
+  "lt-LT": lt_LT_default,
+  "nb-NO": nb_NO_default,
+  "nl-NL": nl_NL_default,
+  "pl-PL": pl_PL_default,
+  "pt-BR": pt_BR_default,
+  "ro-RO": ro_RO_default,
+  "ru-RU": ru_RU_default,
+  "th-TH": th_TH_default,
+  "tr-TR": tr_TR_default,
+  "uk-UA": uk_UA_default,
+  "vi-VN": vi_VN_default,
+  "zh-CN": zh_CN_default,
+  "zh-TW": zh_TW_default
 };
 function i18n(locale) {
   return locales[locale] || en_US_default;
