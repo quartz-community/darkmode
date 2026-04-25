@@ -2,6 +2,11 @@ const userPref = window.matchMedia("(prefers-color-scheme: light)").matches ? "l
 const currentTheme = localStorage.getItem("theme") ?? userPref;
 document.documentElement.setAttribute("saved-theme", currentTheme);
 
+const syncBodyThemeClass = (theme: "light" | "dark") => {
+  document.body?.classList.remove("theme-dark", "theme-light");
+  document.body?.classList.add(`theme-${theme}`);
+};
+
 const emitThemeChangeEvent = (theme: "light" | "dark") => {
   const event: CustomEventMap["themechange"] = new CustomEvent("themechange", {
     detail: { theme },
@@ -10,11 +15,17 @@ const emitThemeChangeEvent = (theme: "light" | "dark") => {
 };
 
 const setupDarkmode = () => {
+  // Sync body class with current theme on setup (runs after DOM is ready)
+  const currentSavedTheme =
+    (document.documentElement.getAttribute("saved-theme") as "light" | "dark") ?? "light";
+  syncBodyThemeClass(currentSavedTheme);
+
   const switchTheme = () => {
     const newTheme =
       document.documentElement.getAttribute("saved-theme") === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("saved-theme", newTheme);
     localStorage.setItem("theme", newTheme);
+    syncBodyThemeClass(newTheme);
     emitThemeChangeEvent(newTheme);
   };
 
@@ -22,6 +33,7 @@ const setupDarkmode = () => {
     const newTheme = e.matches ? "dark" : "light";
     document.documentElement.setAttribute("saved-theme", newTheme);
     localStorage.setItem("theme", newTheme);
+    syncBodyThemeClass(newTheme);
     emitThemeChangeEvent(newTheme);
   };
 
