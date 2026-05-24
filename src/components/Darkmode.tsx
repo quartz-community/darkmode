@@ -15,7 +15,7 @@ const Darkmode: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) 
   const lightModeLabel = locale.components.themeToggle.lightMode;
 
   return (
-    <button class={classNames(displayClass, "darkmode")}>
+    <button class={classNames(displayClass, "darkmode")} aria-label={darkModeLabel}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"

@@ -371,7 +371,7 @@ var Darkmode = ({ displayClass, cfg }) => {
   const locale = i18n(cfg?.locale ?? "en-US");
   const darkModeLabel = locale.components.themeToggle.darkMode;
   const lightModeLabel = locale.components.themeToggle.lightMode;
-  return /* @__PURE__ */ u2("button", { class: classNames(displayClass, "darkmode"), children: [
+  return /* @__PURE__ */ u2("button", { class: classNames(displayClass, "darkmode"), "aria-label": darkModeLabel, children: [
     /* @__PURE__ */ u2(
       "svg",
       {
