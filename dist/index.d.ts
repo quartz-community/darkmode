@@ -1,6 +1,2 @@
-import { QuartzComponent } from '@quartz-community/types';
+export { Darkmode } from './components/index.js';
 export { QuartzComponent, QuartzComponentProps, StringResource } from '@quartz-community/types';
-
-declare const _default: () => QuartzComponent;
-
-export { _default as Darkmode };
