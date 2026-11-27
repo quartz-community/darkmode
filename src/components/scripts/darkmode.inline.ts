@@ -14,28 +14,30 @@ const emitThemeChangeEvent = (theme: "light" | "dark") => {
   document.dispatchEvent(event);
 };
 
+// Handlers live at module scope so that setting up again (`render` after `nav`, e.g. when
+// encrypted-pages unlocks a page) re-adds the same function, which addEventListener ignores.
+const switchTheme = () => {
+  const newTheme =
+    document.documentElement.getAttribute("saved-theme") === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("saved-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+  syncBodyThemeClass(newTheme);
+  emitThemeChangeEvent(newTheme);
+};
+
+const themeChange = (e: MediaQueryListEvent) => {
+  const newTheme = e.matches ? "dark" : "light";
+  document.documentElement.setAttribute("saved-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+  syncBodyThemeClass(newTheme);
+  emitThemeChangeEvent(newTheme);
+};
+
 const setupDarkmode = () => {
   // Sync body class with current theme on setup (runs after DOM is ready)
   const currentSavedTheme =
     (document.documentElement.getAttribute("saved-theme") as "light" | "dark") ?? "light";
   syncBodyThemeClass(currentSavedTheme);
-
-  const switchTheme = () => {
-    const newTheme =
-      document.documentElement.getAttribute("saved-theme") === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("saved-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-    syncBodyThemeClass(newTheme);
-    emitThemeChangeEvent(newTheme);
-  };
-
-  const themeChange = (e: MediaQueryListEvent) => {
-    const newTheme = e.matches ? "dark" : "light";
-    document.documentElement.setAttribute("saved-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-    syncBodyThemeClass(newTheme);
-    emitThemeChangeEvent(newTheme);
-  };
 
   for (const darkmodeButton of document.getElementsByClassName("darkmode")) {
     darkmodeButton.addEventListener("click", switchTheme);

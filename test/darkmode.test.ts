@@ -110,16 +110,35 @@ describe("darkmode script", () => {
     expect(dom.attributes.get("saved-theme")).toBe("dark");
   });
 
-  // bug: the script sets up on both `nav` and `render`, adding another click listener each time
-  // without removing the first. encrypted-pages dispatches `render` after unlocking a page (and
-  // after patching the content index on every page once a password is cached), so a click then
-  // toggles twice: the theme button does nothing until the next navigation.
-  it.fails("toggles once per click after a `render` event (encrypted page unlocked)", async () => {
+  // regression: the script sets up on both `nav` and `render`; encrypted-pages dispatches `render`
+  // after unlocking a page. Each setup used to add another click listener, so a click toggled twice.
+  it("toggles once per click after a `render` event (encrypted page unlocked)", async () => {
     const dom = fakeDom({ buttonClass: "darkmode", stored: { theme: "light" } });
     await load();
     dom.nav();
     dom.render();
     dom.click();
     expect(dom.attributes.get("saved-theme")).toBe("dark");
+  });
+
+  it("keeps one click and one system-scheme listener after a nav and two `render`s", async () => {
+    const dom = fakeDom({ buttonClass: "darkmode", stored: { theme: "light" } });
+    await load();
+    dom.nav();
+    dom.render();
+    dom.render(); // three setups: an odd count would still end on "dark", so count events
+    const events: string[] = [];
+    dom.document.addEventListener("themechange", (e) =>
+      events.push((e as CustomEvent<{ theme: string }>).detail.theme),
+    );
+    dom.click();
+    expect(dom.attributes.get("saved-theme")).toBe("dark");
+    dom.darkQuery.dispatchEvent(Object.assign(new Event("change"), { matches: false }));
+    expect(events).toEqual(["dark", "light"]);
+
+    dom.nav(); // the cleanups still detach everything: the next page sets up exactly once
+    events.length = 0;
+    dom.click();
+    expect(events).toEqual(["dark"]);
   });
 });
